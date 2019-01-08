@@ -1,17 +1,21 @@
 <template>
-  <view class="container">
-    <text class="text-color-primary">Seats taken</text>
-    </view>
+  <app-navigation></app-navigation>
 </template>
- 
-<style>
-.container {
-  background-color: white;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
+
+<script>
+import { StackNavigator } from "vue-native-router";
+import MainScreen from './Main'
+import homeScreen from './homeScreen'
+const AppNavigation = StackNavigator(
+  {
+    Main: MainScreen,
+    homeScreen: homeScreen
+  },
+  {
+    initialRouteName: 'Main',
+  }
+);
+export default {
+    components: { AppNavigation }
 }
-.text-color-primary {
-  color: blue;
-}
-</style>
+</script>
