@@ -1,11 +1,13 @@
 <template>
   <view class="container">
     
-    <text class="text-color-primary" :style="{color: 'rgb(66,133,244)', fontSize: 30}">TUNESYNC</text>
+    <!-- <text class="text-color-primary" :style="{color: 'rgb(66,133,244)', fontSize: 30}">TUNESYNC</text> -->
+    <!-- <view class="soft"> -->
     <image
-          :style="{width: 66, height: 58}"
-          :source="{uri: 'https://i.pinimg.com/originals/bc/b9/7d/bcb97df2753cf719f37ca3687d0ff846.png'}"
+          :style="{width: 400, height: 75}"
+          :source="logo"
         />
+    <!-- </view> -->
     <text class="text-color-primary">Username:</text>
     <text-input
         :style="{height: 40, borderColor: 'gray', width: '70%',marginTop: 8, marginBottom: 8}"
@@ -22,7 +24,7 @@
         :style="{marginTop: 24}"
         :on-press="handleButton"
         title="Login"
-        color="#4285F4"
+        color="#0B85E3"
         accessibility-label="Learn more about this purple button"
     />
     </view>
@@ -30,8 +32,7 @@
 </template>
 
 <script>
-
-console.log('aye')
+import logo from '../assets/tunesyncLogo.png'
 
 export default {
 props: {
@@ -44,7 +45,7 @@ props: {
       username: "",
       message: "whatttt",
       myInput: '',
-      logo: './assets/tunesyncLogo.png'
+      logo
     }
   },
   methods: {
@@ -61,18 +62,22 @@ props: {
  
 <style>
 .container {
-  background-color: rgba(36, 36, 36, 0.973);
+  background-color: rgba(255, 255, 255, 0.959);
   align-items: center;
   justify-content: center;
   flex: 1;
+  width: 100%;
+  height: 100%;
 }
 .text-color-primary {
   color: rgb(124, 124, 124);
 }
 .limit {
-  background-color: rgb(29, 29, 29);
+  background-color: rgba(172, 172, 172, 0.219);
   color: rgb(255, 251, 251);
   width: 80%;
+  border-radius: 3;
+  text-decoration-line: none;
 }
 .login {
   margin-top: 5px;

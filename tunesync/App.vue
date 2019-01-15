@@ -1,21 +1,44 @@
 <template>
-  <app-navigation></app-navigation>
+  <!-- <app-navigation></app-navigation> -->
+  <tab-nav></tab-nav>
 </template>
 
 <script>
-import { StackNavigator } from "vue-native-router";
-import MainScreen from './Main'
-import homeScreen from './homeScreen'
-const AppNavigation = StackNavigator(
+// import { StackNavigator } from "vue-native-router";
+import { TabNavigator,TabBarBottom } from "vue-native-router";
+import MainScreen from './screens/Player'
+import homeScreen from './screens/Search'
+import PartyScreen from './screens/PartyScreen'
+// const AppNavigation = StackNavigator(
+//   {
+//     Main: MainScreen,
+//     homeScreen: homeScreen
+//   },
+//   {
+//     initialRouteName: 'Main',
+//   }
+// );
+
+const tabNav = TabNavigator(
   {
-    Main: MainScreen,
-    homeScreen: homeScreen
+    'Your Music': MainScreen,
+    Search: homeScreen,
+    Party: PartyScreen
   },
   {
-    initialRouteName: 'Main',
+    tabBarPosition: "bottom",
+    tabBarComponent: TabBarBottom
   }
 );
 export default {
-    components: { AppNavigation }
+    data(){
+      return{
+        user: [null,null]
+      }
+    },
+    components: 
+    // { AppNavigation }
+    { tabNav }
 }
 </script>
+
